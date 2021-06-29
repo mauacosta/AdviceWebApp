@@ -8,6 +8,7 @@ import { AdviceComponent } from './pages/advice/advice.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './components/footer/footer.component';
+import { LikedComponent } from './pages/liked/liked.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     HomeComponent,
     AdviceComponent,
-    FooterComponent
+    FooterComponent,
+    LikedComponent
   ],
   imports: [
     BrowserModule,

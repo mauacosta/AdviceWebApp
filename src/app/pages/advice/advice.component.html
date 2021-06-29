@@ -1,11 +1,22 @@
 <div class="advice-container">
-    <h6>{{advice.id}}</h6>
-    <h1>{{advice.advice}}</h1>
+  <h6>{{ advice.id }}</h6>
+  <h1>{{ advice.advice }}</h1>
 </div>
 <div class="secondary-container">
-    <a class="button" [routerLink]="['/advice']" routerLinkActive="router-link-active" (click)="newAdvice()">Get advice</a>
-    <!--<p>To share the advice, share the URL 🧠</p>-->
+  <a class="icon-button" id="likeBtn" (click)="toggleAdvice()" *ngIf="loaded">
+    <svg
+      width="42"
+      height="38"
+      viewBox="0 0 42 38"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M22.1785 4.15218L21.0006 5.3808L19.823 4.15254C19.823 4.15247 19.8229 4.1524 19.8228 4.15233C15.7395 -0.120777 9.06351 -0.843457 4.55711 3.04388L4.55682 3.04413C-0.569343 7.4729 -0.836037 15.4108 3.74879 20.2087L3.74899 20.2089L18.8659 36.0091L18.866 36.0092C20.0394 37.235 21.9539 37.235 23.1274 36.0092L23.1274 36.0091L38.2442 20.209C42.8373 15.4111 42.5705 7.47294 37.4443 3.04413L37.1175 3.42248L37.444 3.04388C32.9374 -0.843692 26.2693 -0.12046 22.1785 4.15218Z"
+        stroke="#33C3F0"
+      />
+    </svg>
+  </a>
+  <a class="button" (click)="newAdvice()">New advice</a>
+  <!--<p>To share the advice, share the URL 🧠</p>-->
 </div>
-
-
-

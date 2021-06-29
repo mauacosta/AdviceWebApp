@@ -13,6 +13,9 @@ import { AdviceService, Advice } from 'src/app/services/advice.service';
 export class AdviceComponent implements OnInit {
 
   advice: Advice = { id: 0, advice: "" }
+  likeBtn!: HTMLElement | null;
+  liked:boolean = false
+  loaded:boolean = false
 
 
   constructor(private adviceService: AdviceService, private activatedRoute: ActivatedRoute) {
@@ -28,18 +31,51 @@ export class AdviceComponent implements OnInit {
       console.log(this.advice);
     });
     */
-
+    this.loaded = false
     this.adviceService.getRandomAdvice().subscribe(res => {
       if (res) {
         this.advice.id = res.slip.id
         this.advice.advice = res.slip.advice
+        this.loaded = true
       }
     })
   }
 
-  newAdvice() {
+  newAdvice():void {
     location.reload()
   }
 
+  toggleAdvice():void{
+    let likeBtn = document.getElementById('likeBtn')
+    if(!this.liked){
+      likeBtn?.classList.add('liked')
+      this.liked = true
+      this.saveToLocal(this.advice)
+    }else{
+      likeBtn?.classList.remove('liked')
+      this.liked = false
+      this.deleteFromLocal(this.advice.id)
+    }
+    
+  }
+
+
+  saveToLocal(data:Advice):void{
+    let advices = [];
+    advices = JSON.parse(localStorage.getItem('liked') || '[]');
+    advices.push(data)
+    localStorage.setItem('liked', JSON.stringify(advices));
+  }
+
+  deleteFromLocal(id:number):void{
+    let advices = [];
+    advices = JSON.parse(localStorage.getItem('liked') ||  '[]');
+    let idToDelete  = advices.map((x: { id: number; }) => {
+      return x.id;
+    }).indexOf(id);
+    
+    advices.splice(idToDelete, 1);
+    localStorage.setItem('liked', JSON.stringify(advices));
+  }
 
 }

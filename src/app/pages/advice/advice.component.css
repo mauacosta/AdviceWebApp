@@ -1,7 +1,31 @@
-.advice-container{
-    height: 75vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.advice-container {
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-button {
+  margin-bottom: 2rem;
+}
+
+.icon-button:hover svg {
+  fill: #92dbf2;
+  cursor: pointer;
+}
+
+.icon-button.liked svg {
+  fill: #33c3f0;
+}
+
+.icon-button.liked:hover svg {
+  fill: #92dbf2;
 }

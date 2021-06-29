@@ -1,0 +1,30 @@
+<div class="liked-container">
+  <ul *ngIf="areLiked; else emptyAdvice">
+    <li
+      *ngFor="let advice of likedAdvices"
+      class="advice"
+      (click)="deleteFromLocal(advice.id)"
+    >
+      <strong>{{ advice.id }}</strong> - {{ advice.advice }}
+    </li>
+  </ul>
+  <ng-template #emptyAdvice>
+    <h3>There are no advices here :( Look for a randome one!</h3>
+    <a
+      class="button button-primary"
+      [routerLink]="['/advice']"
+      routerLinkActive="router-link-active"
+      >Get an advice</a
+    >
+  </ng-template>
+</div>
+
+<div class="secondary-container">
+  <p>Select an advice to delete it</p>
+  <a
+    class="button"
+    [routerLink]="['/advice']"
+    routerLinkActive="router-link-active"
+    >New advice</a
+  >
+</div>

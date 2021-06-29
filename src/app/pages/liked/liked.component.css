@@ -1,0 +1,12 @@
+.liked-container {
+  margin: 30vh 0;
+}
+
+.liked-container li {
+  list-style: none;
+}
+
+.advice:hover {
+  color: rgb(255, 109, 109);
+  cursor: pointer;
+}
