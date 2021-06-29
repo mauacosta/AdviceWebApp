@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "advice-by-mau": {
+      "hosting": {
+        "advice-app": [
+          "advice-by-mau"
+        ]
+      }
+    }
+  }
+}
